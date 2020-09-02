@@ -10,7 +10,7 @@
             <div class="btn-group">
               <button class="btn dropdown-toggle"><span class="caret"></span></button>
               <ul class="dropdown-menu pull-right">
-                <li ng-repeat="cls in allClasses"><a ng-click="recipe.cls=cls">{{cls | translate}}</a></li>
+                <li ng-repeat="cls in allClasses|orderBy:'toString()'"><a ng-click="recipe.cls=cls">{{cls | translate}}</a></li>
               </ul>
             </div>
           </div>
@@ -29,7 +29,7 @@
                    ng-model="recipeSearch.text"
                    placeholder="{{ 'RECIPE_SEARCH' | translate }}" select-on-focus stop-click-propogation
                    ng-keypress="onSearchKeyPress($event)" ng-keydown="onSearchKeyDown($event)"
-                   id="recipe-search-text"/>
+                   id="recipe-search-text" autocomplete="off"/>
             <ul class="recipe-menu-scrollable" isolate-scrolling>
               <li class="loading" ng-show="recipeSearch.loading"><i class="fa fa-spinner fa-spin"></i> {{'LOADING' | translate}}
               </li>
